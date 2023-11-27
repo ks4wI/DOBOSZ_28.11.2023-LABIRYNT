@@ -62,12 +62,12 @@ class Program
                         }
                         else
                         {
-                            Console.WriteLine("labirynt nie zostal utworzony. podano bledna ilosc wierszy lub kolumn");
+                            Console.WriteLine("BŁĄD! labirynt nie zostal utworzony. podano bledna ilosc wierszy lub kolumn");
                         }
                     }
                     else
                     {
-                        Console.WriteLine("labirynt nie zostal utworzony. podano bledny typ wierszy lub kolumn");
+                        Console.WriteLine("BŁĄD! labirynt nie zostal utworzony. podano bledny typ wierszy lub kolumn");
                     }
                     break;
                 case "2":
@@ -103,23 +103,23 @@ class Program
                                         labirynt[wiersz, kolumna] = '.';
                                         break;
                                     default:
-                                        Console.WriteLine("labirynt nie zostal zmodyfikowany. podano bledne wypelnienie komorki");
+                                        Console.WriteLine("BŁĄD! labirynt nie zostal zmodyfikowany. podano bledne wypelnienie komorki");
                                         break;
                                 }
                             }
                             else
                             {
-                                Console.WriteLine("labirynt nie zostal zmodyfikowany. podano bleda komorke do modyfikacji");
+                                Console.WriteLine("BŁĄD! labirynt nie zostal zmodyfikowany. podano bleda komorke do modyfikacji");
                             }
                         }
                         else
                         {
-                            Console.WriteLine("labirynt nie zostal zmodyfikowany. podano bledny typ wiersza lub kolumny");
+                            Console.WriteLine("BŁĄD! labirynt nie zostal zmodyfikowany. podano bledny typ wiersza lub kolumny");
                         }
                     }
                     else
                     {
-                        Console.WriteLine("nie posiadasz zadnego labiryntu do edycji :(");
+                        Console.WriteLine("BŁĄD! nie posiadasz zadnego labiryntu do edycji :(");
                     }
                     break;
                 case "3":
@@ -135,7 +135,7 @@ class Program
                     }
                     else
                     {
-                        Console.WriteLine("nie posiadasz zadnego labiryntu do zapisu :(");
+                        Console.WriteLine("BŁĄD! nie posiadasz zadnego labiryntu do zapisu :(");
                     }
                     break;
                 case "4":
@@ -168,20 +168,20 @@ class Program
                         }
                         catch
                         {
-                            Console.WriteLine("labirynt nie zostal wczytany. podano bledny wybor labiryntu");
+                            Console.WriteLine("BŁĄD! labirynt nie zostal wczytany. podano bledny wybor labiryntu");
 
                         }
                     }
                     else
                     {
-                        Console.WriteLine("nie posiadasz zadnego labiryntu do wczytania :(");
+                        Console.WriteLine("BŁĄD! nie posiadasz zadnego labiryntu do wczytania :(");
                     }
                     break;
                 case "5":
                     Console.WriteLine("wyjscie! pa");Environment.Exit(0);
                     break;
                 default:
-                    Console.WriteLine("podaj prawidlowy wybor");
+                    Console.WriteLine("BŁĄD! podaj prawidlowy wybor");
                     break;
             }
         }
