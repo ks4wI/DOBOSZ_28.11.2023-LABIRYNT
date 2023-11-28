@@ -1,5 +1,3 @@
-﻿using System.Data;
-using System.Globalization;
 
 class Program
 {
@@ -8,6 +6,7 @@ class Program
         int wiersze = 0;
         int kolumny = 0;
         char[,] labirynt = new char[wiersze, kolumny];
+        List<string> nazwaLabs = new List<string>();
         List<char[,]> labirynty = new List<char[,]>();
         Console.WriteLine("LEGENDA :\np-puste\n#-sciana\n.-sciezka");
         while (true)
@@ -29,7 +28,7 @@ class Program
             {
                 Console.WriteLine("stworz swoj pierwszy labirynt");
             }
-            
+
             Console.WriteLine("*menu:*");
             Console.WriteLine("1. dodaj nowy labirynt");
             Console.WriteLine("2. modyfikuj element w labiryncie");
@@ -123,11 +122,43 @@ class Program
                     }
                     break;
                 case "3":
+                    Console.WriteLine("podaj nazwe pliku do zapisu: ");
+                    string nazwaPliku = Console.ReadLine();
+                    using (StreamWriter writer = new StreamWriter(nazwaPliku + ".txt"))
+                    {
+                        for(int i = 0; i < wiersze; i++)
+                        {
+                            for(int j = 0; j < kolumny; j++)
+                            {
+                                writer.Write(labirynt[i, j] + " ");
+                            }
+                            writer.WriteLine();
+                        }
+                        Console.WriteLine("labirynt zostal pomyslnie zapisany do pliku txt");
+                    }
+                        break;
+                case "4":
+                   
+                    break;
+                case "5":
+                    Console.WriteLine("wyjscie! pa"); Environment.Exit(0);
+                    break;
+                default:
+                    Console.WriteLine("BŁĄD! podaj prawidlowy wybor");
+                    break;
+            }
+        }
+    }
+}
+/*
+            zapis stary
+
                     bool czyjestLabDoZap = labirynt.GetLength(0) == 0;
                     if (czyjestLabDoZap == false)
                     {
                         Console.WriteLine("podaj nazwe labiryntu: ");
                         string nazwaLab = Console.ReadLine();
+                        nazwaLabs.Add(nazwaLab);
                         char[,] zapis = new char[wiersze, kolumny];
                         Array.Copy(labirynt, zapis, labirynt.Length);
                         labirynty.Add(zapis);
@@ -136,18 +167,19 @@ class Program
                     else
                     {
                         Console.WriteLine("BŁĄD! nie posiadasz zadnego labiryntu do zapisu :(");
-                    }
-                    break;
-                case "4":
-                    bool czyJestZapis = labirynty.Any();
+                    } 
+
+            wczytanie stary
+
+             bool czyJestZapis = labirynty.Any();
                     if (czyJestZapis == true)
                     {
                         Console.WriteLine("wybierz element do wyswietlenia: ");
-                        int lala = 0;
+                        int y = 0;
                         foreach (char[,] id in labirynty)
-                        {
-                            lala++;
-                            Console.WriteLine("labirynt nr. " + lala + ":");
+                        { 
+                            Console.WriteLine("labirynt " + nazwaLabs[y] + ":");
+                            y++;
                             for (int i = 0; i < id.GetLength(0); i++)
                             {
                                 for (int j = 0; j < id.GetLength(1); j++)
@@ -176,29 +208,4 @@ class Program
                     {
                         Console.WriteLine("BŁĄD! nie posiadasz zadnego labiryntu do wczytania :(");
                     }
-                    break;
-                case "5":
-                    Console.WriteLine("wyjscie! pa");Environment.Exit(0);
-                    break;
-                default:
-                    Console.WriteLine("BŁĄD! podaj prawidlowy wybor");
-                    break;
-            }
-        }
-    }
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+ */
